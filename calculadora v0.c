@@ -5,12 +5,18 @@
 
 float add(float N1)
     {
-
+        float N2 = 0, Res;
+        scanf("%f", &N2);
+        Res = N1 + N2;
+        return Res;
     }
 
 float subtract(float N1)
     {
-
+        float N2 = 0, Res;
+        scanf("%f", &N2);
+        Res = N1 - N2;
+        return Res;
     }
 
 float multiply(float N1)
