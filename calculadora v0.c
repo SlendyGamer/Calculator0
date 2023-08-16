@@ -37,7 +37,43 @@ float divide(float N1)
 
 int main()
     {
+        float Nm1 = 0;
+        char OP;
+        printf("Calculadora\n");
+        printf("Como usar:\n1- Digite um num e então pressione (Enter).\n");
+        printf("2- Selecione uma operação a ser realizada e pressione (Enter)\n");
+        printf("3- Repita o processo o quanto desejar.\n");
+        printf("4- apos ter digitado o ultimo num e pressionado (Enter), Pressione (=) em 'OP:' para ver o resultado final.\n");
+        printf("5- para comecar uma nova conta, pressione 'r' em 'OP:'.\n");
+        printf("6- Para sair, pressione (q) em 'OP:\n'");
 
+        printf("\nAjuda: adicao(+), subtracao(-), multiplicacao(*), divisao(/), Resultado(=), Resetar(r), Sair(q).\n\n");
+
+        do
+            {
+            printf("Nm:  ");
+            scanf("%f", &Nm1);
+            fflush(stdin);
+            printf("OP:  ");
+            scanf("%c", &OP);
+            OP = toupper(OP);
+            if (OP == '=')
+                printf("R :  %f", Nm1);
+
+                else if (OP == '+')
+                    Nm1 = add(Nm1);
+
+                else if (OP == '-')
+                    Nm1 = subtract(Nm1);
+
+                else if (OP == '*')
+                    Nm1 = multiply(Nm1);
+
+                else if (OP == '/')
+                    Nm1 = divide(Nm1);
+
+            } while (OP != 'R');
+        return 0;
 
     }
     
