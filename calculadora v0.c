@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <ctype.h>
-
+#include <windows.h>
 //calculadora
 
 float add(float N1)
     {
         float N2 = 0, Res;
+        printf("Nm:  ");
         scanf("%f", &N2);
         Res = N1 + N2;
         return Res;
@@ -14,6 +15,7 @@ float add(float N1)
 float subtract(float N1)
     {
         float N2 = 0, Res;
+        printf("Nm:  ");
         scanf("%f", &N2);
         Res = N1 - N2;
         return Res;
@@ -22,6 +24,7 @@ float subtract(float N1)
 float multiply(float N1)
     {
         float N2 = 0, Res;
+        printf("Nm:  ");
         scanf("%f", &N2);
         Res = N1 * N2;
         return Res;
@@ -30,6 +33,7 @@ float multiply(float N1)
 float divide(float N1)
     {
         float N2 = 0, Res;
+        printf("Nm:  ");
         scanf("%f", &N2);
         Res = N1 / N2;
         return Res;
@@ -49,16 +53,16 @@ int main()
 
         printf("\nAjuda: adicao(+), subtracao(-), multiplicacao(*), divisao(/), Resultado(=), Resetar(r), Sair(q).\n\n");
 
+        printf("Nm:  ");
+        scanf("%f", &Nm1);
         do
             {
-            printf("Nm:  ");
-            scanf("%f", &Nm1);
-            fflush(stdin);
             printf("OP:  ");
+            fflush(stdin);
             scanf("%c", &OP);
             OP = toupper(OP);
             if (OP == '=')
-                printf("R :  %f", Nm1);
+                printf("R :  %.2f\n", Nm1);
 
                 else if (OP == '+')
                     Nm1 = add(Nm1);
@@ -72,7 +76,16 @@ int main()
                 else if (OP == '/')
                     Nm1 = divide(Nm1);
 
-            } while (OP != 'R');
+                else if (OP == 'R')
+                {
+                Nm1 = 0;
+                system("cls");
+                printf("Nm:  ");
+                scanf("%f", &Nm1);
+                }
+                
+            } while (OP != 'Q');
+
         return 0;
 
     }
